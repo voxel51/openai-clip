@@ -1,0 +1,33 @@
+{
+    "name": "voxel51/openai-clip",
+    "url": "https://github.com/voxel51/openai-clip",
+    "models": [
+        {
+            "base_name": "voxel51/clip-vit-base32-torch",
+            "base_filename": "CLIP-ViT-B-32.pt",
+            "author": "OpenAI",
+            "license": "MIT",
+            "source": "https://github.com/openai/CLIP",
+            "description": "CLIP text/image encoder from `Learning Transferable Visual Models From Natural Language Supervision <https://arxiv.org/abs/2103.00020>`_ trained on 400M text-image pairs",
+            "tags": [
+                "classification",
+                "logits",
+                "embeddings",
+                "torch",
+                "clip",
+                "zero-shot"
+            ],
+            "size_bytes": 353976522,
+            "date_added": "2022-04-12 17:49:51",
+            "requirements": {
+                "packages": ["torch", "torchvision"],
+                "cpu": {
+                    "support": true
+                },
+                "gpu": {
+                    "support": true
+                }
+            }
+        }
+    ]
+}
