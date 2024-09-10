@@ -1,6 +1,6 @@
 # OpenAI CLIP
 
-Wrapper for [OpenAI's CLIP model](https://github.com/openai/CLIP) for the
+Wrapper around [OpenAI's CLIP model](https://github.com/openai/CLIP) for the
 FiftyOne Model Zoo.
 
 ## Example usage

@@ -8,7 +8,7 @@
             "author": "OpenAI",
             "license": "MIT",
             "source": "https://github.com/openai/CLIP",
-            "description": "CLIP text/image encoder from `Learning Transferable Visual Models From Natural Language Supervision <https://arxiv.org/abs/2103.00020>`_ trained on 400M text-image pairs",
+            "description": "CLIP text/image encoder from Learning Transferable Visual Models From Natural Language Supervision (https://arxiv.org/abs/2103.00020) trained on 400M text-image pairs",
             "tags": [
                 "classification",
                 "logits",
