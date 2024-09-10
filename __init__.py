@@ -63,18 +63,18 @@ def load_model(model_name, model_path, text_prompt="A photo of", classes=None):
         classes = DEFAULT_CLASSES.split(",")
 
     config = TorchCLIPModelConfig(
-        {
-            "model_path": model_path,
-            "tokenizer_path": _get_tokenizer_path(model_path),
-            "context_length": 77,
-            "text_prompt": text_prompt,
-            "classes": classes,
-            "output_processor_cls": "fiftyone.utils.torch.ClassifierOutputProcessor",
-            "image_size": [224, 224],
-            "image_mean": [0.48145466, 0.4578275, 0.40821073],
-            "image_std": [0.26862954, 0.26130258, 0.27577711],
-            "embeddings_layer": "visual",
-        }
+        dict(
+            model_path=model_path,
+            tokenizer_path=_get_tokenizer_path(model_path),
+            context_length=77,
+            text_prompt=text_prompt,
+            classes=classes,
+            output_processor_cls="fiftyone.utils.torch.ClassifierOutputProcessor",
+            image_size=[224, 224],
+            image_mean=[0.48145466, 0.4578275, 0.40821073],
+            image_std=[0.26862954, 0.26130258, 0.27577711],
+            embeddings_layer="visual",
+        )
     )
     return TorchCLIPModel(config)
 
