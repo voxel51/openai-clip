@@ -79,7 +79,6 @@ def load_model(model_name, model_path, text_prompt="A photo of", classes=None):
     return TorchCLIPModel(config)
 
 
-def _get_tokenizer_path(model_name, model_path):
-    return os.path.join(
-        os.path.dirname(model_path), "clip_bpe_simple_vocab_16e6.txt.gz"
-    )
+def _get_tokenizer_path(model_path):
+    model_dir = os.path.dirname(model_path)
+    return os.path.join(model_dir, "clip_bpe_simple_vocab_16e6.txt.gz")
