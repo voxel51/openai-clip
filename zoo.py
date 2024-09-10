@@ -26,6 +26,7 @@ class TorchCLIPModelConfig(fout.TorchImageModelConfig):
     arguments.
 
     Args:
+        model_path: the path to the model's weights on disk
         tokenizer_path: the path to the model's tokenizer on disk
         context_length: the model's context length
         text_prompt: the text prompt to use, e.g., ``"A photo of"``
@@ -33,9 +34,9 @@ class TorchCLIPModelConfig(fout.TorchImageModelConfig):
     """
 
     def __init__(self, d):
-        d = self.init(d)
         super().__init__(d)
 
+        self.model_path = self.parse_string(d, "model_path")
         self.tokenizer_path = self.parse_string(d, "tokenizer_path")
         self.context_length = self.parse_int(d, "context_length")
         self.text_prompt = self.parse_string(d, "text_prompt")
