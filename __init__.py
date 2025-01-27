@@ -10,6 +10,7 @@ import os
 
 import eta.core.web as etaw
 
+from fiftyone.operators import types
 from .zoo import TorchCLIPModelConfig, TorchCLIPModel
 
 
@@ -77,6 +78,32 @@ def load_model(model_name, model_path, text_prompt="A photo of", classes=None):
         )
     )
     return TorchCLIPModel(config)
+
+
+def get_parameters(model_name, ctx, inputs):
+    """Defines any necessary properties to collect the model's custom
+    parameters from a user during prompting.
+
+    Args:
+        model_name: the name of the model, as declared by the ``base_name`` and
+            optional ``version`` fields of the manifest
+        ctx: an :class:`fiftyone.operators.ExecutionContext`
+        inputs: a :class:`fiftyone.operators.types.Property`
+    """
+    if model_name != "voxel51/clip-vit-base32-torch":
+        raise ValueError("Unsupported model name '%s'" % model_name)
+
+    inputs.list(
+        "classes",
+        types.String(),
+        required=False,
+        default=None,
+        label="Zero shot classes",
+        description=(
+            "An optional list of custom classes for zero-shot prediction"
+        ),
+        view=types.AutocompleteView(),
+    )
 
 
 def _get_tokenizer_path(model_path):
